@@ -70,11 +70,9 @@ public class BinaryUploader {
 
 			savePath = PathFormat.parse(savePath, originFileName);
 
-			String physicalPath = (String) conf.get("rootPath") + savePath;
-
 			InputStream is = fileStream.openStream();
 			State storageState = StorageManager.saveFileByInputStream(is,
-					physicalPath, maxSize,qCloudParam);
+				savePath, maxSize,qCloudParam);
 			is.close();
 
 			if (storageState.isSuccess()) {

@@ -29,9 +29,8 @@ public final class Base64Uploader {
 				(String) conf.get("filename"));
 		
 		savePath = savePath + suffix;
-		String physicalPath = (String) conf.get("rootPath") + savePath;
 
-		State storageState = StorageManager.saveBinaryFile(data, physicalPath,qCloudParam);
+		State storageState = StorageManager.saveBinaryFile(data, savePath,qCloudParam);
 
 		if (storageState.isSuccess()) {
 			storageState.putInfo("type", suffix);
